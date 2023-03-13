@@ -10,4 +10,9 @@ public class currency implements convertible {
 
   }
 
+  @Override
+  public String toString() {
+    // TODO Auto-generated method stub
+    return "DIVISA: " + this.name;
+  }
 }

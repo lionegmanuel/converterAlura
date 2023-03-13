@@ -1,13 +1,21 @@
 public class App {
   public static void main(String[] args) throws Exception {
+    // divisas
     System.out.println("---CONVERSOR DE DIVISAS Y TEMPERATURA---");
-    currencyConverter converterOne = new currencyConverter();
-    converterOne.addCurrency(new currency("Peso Argentino"));
-    converterOne.addCurrency(new currency("Libra Exterlina"));
-    converterOne.addCurrency(new currency("USD"));
-    converterOne.addCurrency(new currency("EUR"));
-    converterOne.addCurrency(new currency("Yen Japones"));
+    currencyConverter currencyConverter = new currencyConverter();
+    currencyConverter.addCurrency(new currency("Peso Argentino"));
+    currencyConverter.addCurrency(new currency("Libra Exterlina"));
+    currencyConverter.addCurrency(new currency("USD"));
+    currencyConverter.addCurrency(new currency("EUR"));
+    currencyConverter.addCurrency(new currency("Yen Japones"));
+    currencyConverter.showCurrencies();
+    System.out.println("---");
+    // escalas de temperatura
 
-    converterOne.showCurrencies(converterOne);
+    temperatureConverter temperatureConverter = new temperatureConverter();
+    temperatureConverter.addTemperatureScale(new scale("Celsius"));
+    temperatureConverter.addTemperatureScale(new scale("Kelvin"));
+    temperatureConverter.addTemperatureScale(new scale("Fahrenheit"));
+    temperatureConverter.showTemperatureScale();
   }
 }

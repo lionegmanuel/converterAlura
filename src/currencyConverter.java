@@ -11,14 +11,19 @@ public class currencyConverter {
                                         // actualizar la dimension de la matriz.
   }
 
-  public void addCurrency(currency currency) {
+  public void addCurrency(currency currency) { // registro de divisas a la lista
     this.currencies.add(currency);
   }
 
-  public void showCurrencies(currencyConverter list) {
-    for (currency currentCurrency : list) {
-      System.out.println(currentCurrency.toString());
+  public void showCurrencies() { // muestra de las divisas registradas
+    if (currencies.isEmpty())
+      System.out.println("¡ERROR!\nNo hay divisas registradas.");
+    else {
+      for (int x = 0; x < currencies.size(); x++) {
+        System.out.println(currencies.get(x));
+      }
     }
+
   }
 
   public double[][] getChangeType() {

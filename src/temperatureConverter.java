@@ -11,4 +11,22 @@ public class temperatureConverter {
                                         // actualizar la dimension de la matriz.
   }
 
+  public void addTemperatureScale(scale scale) { // registro de escalas de temperaturas a la lista
+    scales.add(scale);
+  }
+
+  public void showTemperatureScale() { // muestra de las escalas de temperatura registradas
+    if (scales.isEmpty())
+      System.out.println("¡ERROR!\nNo hay escalas de temperatura registradas.");
+    else {
+      for (int i = 0; i < scales.size(); i++) {
+        System.out.println(scales.get(i));
+      }
+    }
+  }
+
+  public ArrayList<scale> getScales() {
+    return scales;
+  }
+
 }

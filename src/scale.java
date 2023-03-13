@@ -10,4 +10,8 @@ public class scale implements convertible {
 
   }
 
+  @Override
+  public String toString() {
+    return "ESCALA DE TEMPERATURA: " + this.name;
+  }
 }
