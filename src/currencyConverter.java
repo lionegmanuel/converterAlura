@@ -6,7 +6,7 @@ public class currencyConverter {
 
   public currencyConverter() {
     this.currencies = new ArrayList<currency>();
-    this.changeType = new double[5][5]; // la dimension de la matriz DEBE SER proporcional a la cantidad de objetos //
+    this.changeType = new double[6][6]; // la dimension de la matriz DEBE SER proporcional a la cantidad de objetos //
                                         // posibles a operar. En caso de que se deban agregar objetos, se debera
                                         // actualizar la dimension de la matriz.
   }
@@ -33,6 +33,7 @@ public class currencyConverter {
   public ArrayList<currency> getCurrencies() {
     return currencies;
   }
+  // trabajo con la matriz y todos los posibles tipos de cambio
 
   @Override
   public String toString() {
