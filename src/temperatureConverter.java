@@ -1,31 +1,38 @@
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 public class temperatureConverter {
-  private ArrayList<scale> scales; // registro del total de escalas de temperaturas disponibles para operar
-  private double changeType[][]; // registro del total de tipos de cambio entre temperaturas
+  public void celsandfar(double amount, int typeCase) { // celsius y fahrenheit // escala celsius como principal
+    if (typeCase == 1) {
+      double result = (1.8 * amount) + 32; // resultado final de conversion
+      JOptionPane.showMessageDialog(null, "RESULTADO: " + result + " °F\n\nCELSIUS ➙  FAHRENHEIT");
+    } else { // escala fahrenheit es la principal
+      double result = (amount - 32) / 1.8;
+      JOptionPane.showMessageDialog(null, "RESULTADO: " + result + " °C\n\nFAHRENHEIT ➙  CELSIUS");
+    }
 
-  public temperatureConverter() {
-    this.scales = new ArrayList<scale>(); // la dimension de la matriz DEBE SER proporcional a la cantidad de objetos //
-    // posibles a operar. En caso de que se deban agregar objetos, se debera
-    // actualizar la dimension de la matriz.
   }
 
-  public void addTemperatureScale(scale scale) { // registro de escalas de temperaturas a la lista
-    scales.add(scale);
-  }
+  public void celsandkel(double amount, int typeCase) { // celsius con kelvin
+    if (typeCase == 1) {
 
-  public void showTemperatureScale() { // muestra de las escalas de temperatura registradas
-    if (scales.isEmpty())
-      System.out.println("¡ERROR!\nNo hay escalas de temperatura registradas.");
-    else {
-      for (int i = 0; i < scales.size(); i++) {
-        System.out.println(scales.get(i));
-      }
+      double result = amount + 273.15;
+      JOptionPane.showMessageDialog(null, "RESULTADO: " + result + " °K\n\nCELSIUS ➙  KELVIN");
+    } else {
+      double result = amount - 273.15;
+      JOptionPane.showMessageDialog(null, "RESULTADO: " + result + " °C\n\nKELVIN ➙  CELSIUS");
     }
   }
 
-  public ArrayList<scale> getScales() {
-    return scales;
-  }
+  public void fahrandkel(double amount, int typeCase) { // fahrenheit y kelvin
+    if (typeCase == 1) {
+      double result = ((amount - 32) / 1.8) + 273.15;
+      JOptionPane.showMessageDialog(null, "RESULTADO: " + result + " °K\n\nFAHRENHEIT ➙  KELVIN");
+    } else {
 
+      double result = (((amount - 273.15) * 1.8) + 32);
+      JOptionPane.showMessageDialog(null, "RESULTADO: " + result + " °F\n\nKELVIN ➙  FAHRENHEIT");
+    }
+  }
 }

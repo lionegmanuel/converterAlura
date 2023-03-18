@@ -1,4 +1,4 @@
 public interface convertible {
-  public abstract void converter(String obj);
+  public abstract void convert(double input);
 
 }
