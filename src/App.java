@@ -7,35 +7,39 @@ public class App {
     Boolean work = true;
     moneyConvert money = new moneyConvert();
     temperatureConvert scale = new temperatureConvert();
+    administrativeMeausre measure = new administrativeMeausre();
     while (work) {
-      String options = (JOptionPane.showInputDialog(null, "¿Que tipo de conversion desea realizar?", "MENU",
-          JOptionPane.QUESTION_MESSAGE,
-          null, new Object[] { "Conversion de divisas", "Conversion de temperaturas" }, "Selection")).toString();
-      switch (options) {
-        case "Conversion de divisas":
-          Boolean flag1 = true;
-          while (flag1) {
+
+      try {
+        String options = (JOptionPane.showInputDialog(null, "¿Que tipo de conversion desea realizar?", "MENU",
+            JOptionPane.QUESTION_MESSAGE,
+            null, new Object[] { "Conversion de divisas", "Conversion de temperaturas",
+                "Conversion y pasaje de unidades de medida" },
+            "Selection")).toString();
+        switch (options) {
+          case "Conversion de divisas":
             String amountOption = JOptionPane.showInputDialog("Ingrese el monto deseado a convertir.");
-            if (inputValidator(amountOption)) {
+            if (inputValidator(amountOption.trim())) {
               Double amountInput = Double.parseDouble(amountOption);
               money.convert(amountInput);
-              String[] optionProgram = { "SI, CONTINUAR EL PROCESO DE CONVERSION", "NO, FINALIZAR EL PROGRAMA" };
+              String[] optionProgram = { "SI, CONTINUAR EL PROCESO DE CONVERSION.", "NO, FINALIZAR." };
               int programOption = JOptionPane.showOptionDialog(null, "¿Desea continuar el proceso de conversion?",
                   "¡CONVERSION EXITOSA!", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE, null,
                   optionProgram, optionProgram[0]);
-              flag1 = false;
+
               if (programOption == 1) {
-                JOptionPane.showMessageDialog(null, "¡PROGRAMA FINALIZADO!");
+                JOptionPane.showMessageDialog(null, "✔ PROGRAMA FINALIZADO ✔", "¡Gracias por utilizar el programa!",
+                    JOptionPane.INFORMATION_MESSAGE, null);
                 work = false;
                 break;
               }
-            } else
-              JOptionPane.showMessageDialog(null, "¡ERROR!\nIngrese caracteres validos.");
+            } else {
+              JOptionPane.showMessageDialog(null, "ERROR!\n✎ Ingrese caracteres validos.", "Caracter/es invalido/s",
+                  JOptionPane.ERROR_MESSAGE, null);
+            }
+            break;
 
-          }
-        case "Conversion de temperaturas":
-          Boolean flag2 = true;
-          while (flag2) {
+          case "Conversion de temperaturas":
             String scaleOption = JOptionPane.showInputDialog("Ingrese el valor de temperatura deseado a convertir.");
             if (inputValidator(scaleOption)) {
               Double scaleInput = Double.parseDouble(scaleOption);
@@ -44,32 +48,52 @@ public class App {
               int programOption = JOptionPane.showOptionDialog(null, "¿Desea continuar el proceso de conversion?",
                   "¡CONVERSION EXITOSA!", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE, null,
                   optionProgram, optionProgram[0]);
-              flag2 = false;
               if (programOption == 1) {
-                JOptionPane.showMessageDialog(null, "¡PROGRAMA FINALIZADO!");
+                JOptionPane.showMessageDialog(null, "✔ PROGRAMA FINALIZADO ✔", "¡Gracias por utilizar el programa!",
+                    JOptionPane.INFORMATION_MESSAGE, null);
                 work = false;
                 break;
               }
-            } else
-              JOptionPane.showMessageDialog(null, "¡ERROR!\nIngrese caracteres validos.");
-          }
+            } else {
+              JOptionPane.showMessageDialog(null, "ERROR!\n✎ Ingrese caracteres validos.", "Caracter/es invalido/s",
+                  JOptionPane.ERROR_MESSAGE, null);
 
+            }
+            break;
+
+          case "Conversion y pasaje de unidades de medida":
+            String unitOfMeasurement = JOptionPane.showInputDialog("Ingrese el valor deseado a convertir.");
+            if (inputValidator(unitOfMeasurement)) {
+              Double measureInput = Double.parseDouble(unitOfMeasurement);
+              measure.registerUnit(measureInput);
+              String[] optionProgram = { "SI, CONTINUAR EL PROCESO DE CONVERSION", "NO, FINALIZAR EL PROGRAMA" };
+              int programOption = JOptionPane.showOptionDialog(null, "¿Desea continuar el proceso de conversion?",
+                  "¡CONVERSION EXITOSA!", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE, null,
+                  optionProgram, optionProgram[0]);
+              if (programOption == 1) {
+                JOptionPane.showMessageDialog(null, "✔ PROGRAMA FINALIZADO ✔", "¡Gracias por utilizar el programa!",
+                    JOptionPane.INFORMATION_MESSAGE, null);
+                work = false;
+                break;
+              }
+            } else {
+              JOptionPane.showMessageDialog(null, "ERROR!\n✎ Ingrese caracteres validos.", "Caracter/es invalido/s",
+                  JOptionPane.ERROR_MESSAGE, null);
+
+            }
+            break;
+
+        }
+      } catch (NullPointerException e) {
+        JOptionPane.showMessageDialog(null, "✘ PROCESO CANCELADO ✘", "Proceso Cancelado",
+            JOptionPane.INFORMATION_MESSAGE, null);
+        break;
       }
     }
 
   }
 
   public static boolean inputValidator(String strInput) { // validador del ingreso
-
-    try {
-      double input = Double.parseDouble(strInput);
-      if (input >= 0 || input < 0)
-        ;
-      return true;
-    } catch (Exception e) {
-      System.out.println("¡ERROR! Ingrese caracteres validos");
-      return false;
-    }
-
+    return strInput.matches("[0-9]*"); // expresion regular para verificar que SOLAMENTE se ingresen numeros
   }
 }
