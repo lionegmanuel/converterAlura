@@ -13,4 +13,4 @@ Interfaz graficamente sencilla, ya que en mi caso personal, el objetivo principa
 
 ### Tecnologia implementada:
 
-El programa fue puramente desarrollado con Java, opte por no utilizar API's, ni bases de datos, e inclusive, fue desarrollado **sin** el uso de **IDE**, si no, que utilice unicamente el compilador de codigo **VISUAL STUDIO CODE**, motivo por el cual tambien la parte grafica e interfaz, no fue priorizada ni altamente desarrollada.
+El programa fue puramente desarrollado con Java como unico lenguaje, opte por no utilizar API's, ni bases de datos, ni nada que fuera externo mas que mi editor de codigo y el mismo lenguaje, aclarando que fue desarrollado **sin** el uso de **IDE**, si no, que utilice unicamente el compilador de codigo **VISUAL STUDIO CODE**, motivo por el cual tambien la parte grafica e interfaz, no fue priorizada ni altamente desarrollada.

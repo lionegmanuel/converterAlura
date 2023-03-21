@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import javax.swing.Icon;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 public class App {
@@ -13,11 +14,11 @@ public class App {
       try {
         String options = (JOptionPane.showInputDialog(null, "¿Que tipo de conversion desea realizar?", "MENU",
             JOptionPane.QUESTION_MESSAGE,
-            null, new Object[] { "Conversion de divisas", "Conversion de temperaturas",
-                "Conversion y pasaje de unidades de medida" },
+            null, new Object[] { "DIVISAS", "TEMPERATURAS",
+                "OTRAS UNIDADES DE MEDIDA" },
             "Selection")).toString();
         switch (options) {
-          case "Conversion de divisas":
+          case "DIVISAS":
             String amountOption = JOptionPane.showInputDialog("Ingrese el monto deseado a convertir.");
             if (inputValidator(amountOption.trim())) {
               Double amountInput = Double.parseDouble(amountOption);
@@ -39,7 +40,7 @@ public class App {
             }
             break;
 
-          case "Conversion de temperaturas":
+          case "TEMPERATURAS":
             String scaleOption = JOptionPane.showInputDialog("Ingrese el valor de temperatura deseado a convertir.");
             if (inputValidator(scaleOption)) {
               Double scaleInput = Double.parseDouble(scaleOption);
@@ -61,7 +62,7 @@ public class App {
             }
             break;
 
-          case "Conversion y pasaje de unidades de medida":
+          case "OTRAS UNIDADES DE MEDIDA":
             String unitOfMeasurement = JOptionPane.showInputDialog("Ingrese el valor deseado a convertir.");
             if (inputValidator(unitOfMeasurement)) {
               Double measureInput = Double.parseDouble(unitOfMeasurement);
