@@ -14,3 +14,24 @@ Interfaz graficamente sencilla, ya que en mi caso personal, el objetivo principa
 ### Tecnologia implementada:
 
 El programa fue puramente desarrollado con Java como unico lenguaje, opte por no utilizar API's, ni bases de datos, ni nada que fuera externo mas que mi editor de codigo y el mismo lenguaje, aclarando que fue desarrollado **sin** el uso de **IDE**, si no, que utilice unicamente el compilador de codigo **VISUAL STUDIO CODE**, motivo por el cual tambien la parte grafica e interfaz, no fue priorizada ni altamente desarrollada.
+
+## SELECCION DE TIPO DE CONVERSION
+
+[![pic1.jpg](https://i.postimg.cc/zf3NLcL6/pic1.jpg)](https://postimg.cc/06gFFZ00)
+#### 1-Cambio de divisas
+
+[![pic2.jpg](https://i.postimg.cc/KYV2tDBz/pic2.jpg)](https://postimg.cc/nsvgJ7db)
+#### 2-Conversion de temperaturas
+
+[![pic3.jpg](https://i.postimg.cc/FRLQpkVx/pic3.jpg)](https://postimg.cc/KkxVvzVK)
+#### 3-Conversion de otro tipo de unidades de medida
+
+[![pic4.jpg](https://i.postimg.cc/Hs4dF5DZ/pic4.jpg)](https://postimg.cc/9rM67DfZ)
+###### - Longitudes
+[![pic5.jpg](https://i.postimg.cc/fRzDsLMw/pic5.jpg)](https://postimg.cc/QHyRkjBP)
+###### - Masas
+[![pic6.jpg](https://i.postimg.cc/rwfcwkp5/pic6.jpg)](https://postimg.cc/87fxZxMC)
+###### - Tiempo
+[![pic7.jpg](https://i.postimg.cc/28fCHGJL/pic7.jpg)](https://postimg.cc/3WnMNX33)
+###### - Corriente Electrica
+[![pic8.jpg](https://i.postimg.cc/J7X1cvTW/pic8.jpg)](https://postimg.cc/fkwnM2nH)
