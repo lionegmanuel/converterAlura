@@ -20,65 +20,80 @@ public class App {
         switch (options) {
           case "DIVISAS":
             String amountOption = JOptionPane.showInputDialog("Ingrese el monto deseado a convertir.");
-            if (inputValidator(amountOption.trim())) {
-              Double amountInput = Double.parseDouble(amountOption);
-              money.convert(amountInput);
-              String[] optionProgram = { "SI, CONTINUAR EL PROCESO DE CONVERSION.", "NO, FINALIZAR." };
-              int programOption = JOptionPane.showOptionDialog(null, "¿Desea continuar el proceso de conversion?",
-                  "¡CONVERSION EXITOSA!", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE, null,
-                  optionProgram, optionProgram[0]);
+            if (inputNoneValidator(amountOption)) {
+              if (inputNumberValidator(amountOption.trim())) {
+                Double amountInput = Double.parseDouble(amountOption);
+                money.convert(amountInput);
+                String[] optionProgram = { "SI, CONTINUAR EL PROCESO DE CONVERSION.", "NO, FINALIZAR." };
+                int programOption = JOptionPane.showOptionDialog(null, "¿Desea continuar el proceso de conversion?",
+                    "¡CONVERSION EXITOSA!", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE, null,
+                    optionProgram, optionProgram[0]);
 
-              if (programOption == 1) {
-                JOptionPane.showMessageDialog(null, "✔ PROGRAMA FINALIZADO ✔", "¡Gracias por utilizar el programa!",
-                    JOptionPane.INFORMATION_MESSAGE, null);
-                work = false;
-                break;
+                if (programOption == 1) {
+                  JOptionPane.showMessageDialog(null, "✔ PROGRAMA FINALIZADO ✔", "¡Gracias por utilizar el programa!",
+                      JOptionPane.INFORMATION_MESSAGE, null);
+                  work = false;
+                  break;
+                }
+              } else {
+                JOptionPane.showMessageDialog(null, "ERROR!\n✎ Ingrese caracteres validos.", "Caracter/es invalido/s",
+                    JOptionPane.ERROR_MESSAGE, null);
               }
             } else {
-              JOptionPane.showMessageDialog(null, "ERROR!\n✎ Ingrese caracteres validos.", "Caracter/es invalido/s",
+              JOptionPane.showMessageDialog(null, "ERROR!\n✎ El campo no puede quedar vacio.", "Campo vacio",
                   JOptionPane.ERROR_MESSAGE, null);
             }
             break;
 
           case "TEMPERATURAS":
             String scaleOption = JOptionPane.showInputDialog("Ingrese el valor de temperatura deseado a convertir.");
-            if (inputValidator(scaleOption)) {
-              Double scaleInput = Double.parseDouble(scaleOption);
-              scale.convert(scaleInput);
-              String[] optionProgram = { "SI, CONTINUAR EL PROCESO DE CONVERSION", "NO, FINALIZAR EL PROGRAMA" };
-              int programOption = JOptionPane.showOptionDialog(null, "¿Desea continuar el proceso de conversion?",
-                  "¡CONVERSION EXITOSA!", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE, null,
-                  optionProgram, optionProgram[0]);
-              if (programOption == 1) {
-                JOptionPane.showMessageDialog(null, "✔ PROGRAMA FINALIZADO ✔", "¡Gracias por utilizar el programa!",
-                    JOptionPane.INFORMATION_MESSAGE, null);
-                work = false;
-                break;
+            if (inputNoneValidator(scaleOption)) { // comprueba CAMPO VACIO
+              if (inputNumberValidator(scaleOption.trim())) { // comprueba si el input ES/SON NUMERO/S
+                Double scaleInput = Double.parseDouble(scaleOption);
+                scale.convert(scaleInput);
+                String[] optionProgram = { "SI, CONTINUAR EL PROCESO DE CONVERSION", "NO, FINALIZAR EL PROGRAMA" };
+                int programOption = JOptionPane.showOptionDialog(null, "¿Desea continuar el proceso de conversion?",
+                    "¡CONVERSION EXITOSA!", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE, null,
+                    optionProgram, optionProgram[0]);
+                if (programOption == 1) {
+                  JOptionPane.showMessageDialog(null, "✔ PROGRAMA FINALIZADO ✔", "¡Gracias por utilizar el programa!",
+                      JOptionPane.INFORMATION_MESSAGE, null);
+                  work = false;
+                  break;
+                }
+              } else {
+                JOptionPane.showMessageDialog(null, "ERROR!\n✎ Ingrese caracteres validos.", "Caracter/es invalido/s",
+                    JOptionPane.ERROR_MESSAGE, null);
               }
-            } else {
-              JOptionPane.showMessageDialog(null, "ERROR!\n✎ Ingrese caracteres validos.", "Caracter/es invalido/s",
-                  JOptionPane.ERROR_MESSAGE, null);
 
+            } else {
+              JOptionPane.showMessageDialog(null, "ERROR!\n✎ El campo no puede quedar vacio.", "Campo vacio",
+                  JOptionPane.ERROR_MESSAGE, null);
             }
             break;
 
           case "OTRAS UNIDADES DE MEDIDA":
             String unitOfMeasurement = JOptionPane.showInputDialog("Ingrese el valor deseado a convertir.");
-            if (inputValidator(unitOfMeasurement)) {
-              Double measureInput = Double.parseDouble(unitOfMeasurement);
-              measure.registerUnit(measureInput);
-              String[] optionProgram = { "SI, CONTINUAR EL PROCESO DE CONVERSION", "NO, FINALIZAR EL PROGRAMA" };
-              int programOption = JOptionPane.showOptionDialog(null, "¿Desea continuar el proceso de conversion?",
-                  "¡CONVERSION EXITOSA!", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE, null,
-                  optionProgram, optionProgram[0]);
-              if (programOption == 1) {
-                JOptionPane.showMessageDialog(null, "✔ PROGRAMA FINALIZADO ✔", "¡Gracias por utilizar el programa!",
-                    JOptionPane.INFORMATION_MESSAGE, null);
-                work = false;
-                break;
+            if (inputNoneValidator(unitOfMeasurement)) { // comprueba CAMPO VACIO
+              if (inputNumberValidator(unitOfMeasurement.trim())) { // comprueba si el input ES/SON NUMERO/S
+                Double measureInput = Double.parseDouble(unitOfMeasurement);
+                measure.registerUnit(measureInput);
+                String[] optionProgram = { "SI, CONTINUAR EL PROCESO DE CONVERSION", "NO, FINALIZAR EL PROGRAMA" };
+                int programOption = JOptionPane.showOptionDialog(null, "¿Desea continuar el proceso de conversion?",
+                    "¡CONVERSION EXITOSA!", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE, null,
+                    optionProgram, optionProgram[0]);
+                if (programOption == 1) {
+                  JOptionPane.showMessageDialog(null, "✔ PROGRAMA FINALIZADO ✔", "¡Gracias por utilizar el programa!",
+                      JOptionPane.INFORMATION_MESSAGE, null);
+                  work = false;
+                  break;
+                }
+              } else {
+                JOptionPane.showMessageDialog(null, "ERROR!\n✎ Ingrese caracteres validos.", "Caracter/es invalido/s",
+                    JOptionPane.ERROR_MESSAGE, null);
               }
             } else {
-              JOptionPane.showMessageDialog(null, "ERROR!\n✎ Ingrese caracteres validos.", "Caracter/es invalido/s",
+              JOptionPane.showMessageDialog(null, "ERROR!\n✎ El campo no puede quedar vacio.", "Campo vacio",
                   JOptionPane.ERROR_MESSAGE, null);
 
             }
@@ -94,7 +109,15 @@ public class App {
 
   }
 
-  public static boolean inputValidator(String strInput) { // validador del ingreso
+  public static boolean inputNumberValidator(String strInput) { // validador del ingreso
     return strInput.matches("[0-9]*"); // expresion regular para verificar que SOLAMENTE se ingresen numeros
   }
+
+  public static boolean inputNoneValidator(String strInput) {// validacion por campo vacio
+    if (strInput.isEmpty())
+      return false;
+    else
+      return true;
+  }
+
 }
